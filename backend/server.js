@@ -3,6 +3,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const detectRoute = require('./routes/detect')
+const recipesRoute = require('./routes/recipes')
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -15,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/detect', detectRoute)
-
+app.use('/api/recipes', recipesRoute)
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`)
 })
