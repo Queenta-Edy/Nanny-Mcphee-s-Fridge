@@ -79,10 +79,7 @@ My personal reflection
 
         The most frustrating part was matching detected ingredients to real photos. AI-detected ingredient names dont always match cleanly against an external image APIs search terms (e.g. canned drinks vs. a specific product name), so I had to iterate through a few different approaches, by first trying a fixed ingredient database, then switching to a broader image search API routed through my own backend, with fallback styling for anything that still didnt match. It took several rounds of adjusting before the results looked consistently good.
 
-    What would youdo differently, or what did you learn?
+    What did i learn?
 
         I feel like I understand how the frontend, backend, and AI calls fit together, though I am still learning on some parts particularly around exactly how the streaming (SSE) response is read and reassembled on the frontend side. One concept I learned that I didnt know before this project is how base64 image encoding works, which is, converting an uploaded photo into a text string that can be sent as JSON in an API request, which is how the fridge photo gets from the browser to the backend to OpenAIs Vision API.
 
-    Anything else worth mentioning?
-
-        Overall, I am satisfied with what I built. It does what I want it to do whch is: take a photo, detect ingredients, and generate real recipes from them, with a nice UI. One known limitation is that ingredient quantity estimates from the AI are approximate (a visual guess, not an exact count), and a few ingredient images fall back to a colored placeholder when the image API doesnt have a good match for that specific item.
