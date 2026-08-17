@@ -27,7 +27,29 @@ router.post('/', async (req, res) => {
       messages: [
         {
           role: 'user',
-          content: `Using these ingredients: ${ingredients.join(', ')}, suggest exactly 3 recipes that can be made with them (it's fine to assume basic pantry staples like salt, oil, pepper are also available). For each recipe, include: a name, the total time required, a difficulty level (Easy, Medium, or Hard), and clear step-by-step preparation instructions. Format your entire response as it comes.`,
+          content: `Using these ingredients: ${ingredients.join(', ')}, suggest exactly 3 recipes that can be made with them (it's fine to assume basic pantry staples like salt, oil, pepper are also available).
+
+          Format your ENTIRE response in Markdown using EXACTLY this structure for each of the 3 recipes, with no deviations:
+
+          ## Recipe Name Here
+
+          **Time:** X minutes
+          **Difficulty:** Easy, Medium, or Hard
+
+          ### Ingredients
+          - ingredient 1
+          - ingredient 2
+
+          ### Instructions
+          1. step one
+          2. step two
+
+          Rules you must follow:
+          - Use "## " (two hashes) for each recipe name, nothing else.
+          - Use "### " (three hashes) for the "Ingredients" and "Instructions" labels, nothing else.
+          - Do not use any other heading levels.
+          - Do not add extra commentary before, between, or after the recipes.
+          - Separate each recipe clearly using the "## " heading as shown.`,
         },
       ],
     })

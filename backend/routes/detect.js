@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
           content: [
             {
               type: 'text',
-              text: 'Identify all visible food ingredients in this fridge photo. Respond ONLY with valid JSON in this exact format, no other text: {"ingredients": ["item1", "item2"]}',
+              text: 'Identify all visible food ingredients in this fridge photo, and estimate how many of each item are visible. Respond ONLY with valid JSON in this exact format, no other text: {"ingredients": [{"name": "item1", "quantity": 2}, {"name": "item2", "quantity": 1}]}. If you cannot tell the exact count, make your best visual estimate rather than defaulting to 1.',
             },
             {
               type: 'image_url',
@@ -36,7 +36,13 @@ router.post('/', async (req, res) => {
       max_tokens: 500,
     })
 
-    const raw = response.choices[0].message.content
+    let raw = response.choices[0].message.content
+
+    // Strip markdown code fences if the model wrapped the JSON in them
+    raw = raw.trim()
+    if (raw.startsWith('```')) {
+      raw = raw.replace(/^```(json)?\n?/, '').replace(/\n?```$/, '')
+    }
 
     let parsed
     try {

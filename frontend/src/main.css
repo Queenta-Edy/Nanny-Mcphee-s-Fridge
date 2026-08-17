@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+.recipe-content hr {
+  display: none;
+}
+
+.recipe-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2D2D2D;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.recipe-content h2:first-child {
+  margin-top: 0;
+}
+
+.recipe-content h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4B5D3A;
+  margin-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.recipe-content p {
+  margin-bottom: 0.9rem;
+}
+
+.recipe-content p:has(strong:first-child) {
+  margin-bottom:1.5rem;
+}
+
+.recipe-content strong {
+  font-weight: 500;
+  color: #3F3F3F;
+}
