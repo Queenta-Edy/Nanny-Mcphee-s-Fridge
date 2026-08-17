@@ -1,4 +1,4 @@
-My fridgechef's name is Nanny Mcphee's Fridge. I choose this name because people used to call me that Nanny Mcphee because i used to have almost everything in my bag, so this project reminded me of that time.
+My fridgechef's name is Nanny Mcphee's Fridge. I choose this name because people used to call me Nanny Mcphee because i used to have almost everything in my bag, so this project reminded me of that time.
 However, this project is an AI-powered app that turns a photo of your fridge into food recipe ideas. With it, you take or upload a photo of your fridge, review the ingredients and their quantities the AI detects, and get recipes generated live based on what you have in your fridge.
 
 So, to achiece this goal, i built:
